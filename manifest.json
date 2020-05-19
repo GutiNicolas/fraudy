@@ -1,0 +1,25 @@
+{
+  "name": "Fraudy",
+  "description": "Escanea posibilidades de fraudes en mails",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+  "browser_action": {
+      "default_title": "[Fraudy] Escanear Mail"
+  },
+  "content_scripts": [{
+    "matches": ["*://mail.google.com/mail/*", "*://outlook.live.com/mail/*"],
+    "js": ["jquery.js", "content.js"]
+  }],
+  "background":{
+    "scripts":["background.js"]
+  },
+  "permissions": [
+    "notifications","activeTab","tabs", "https://mail.google.com/mail/*", "https://outlook.live.com/mail/*"
+  ],
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  }
+}
